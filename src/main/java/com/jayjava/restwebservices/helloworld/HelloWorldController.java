@@ -9,8 +9,10 @@ public class HelloWorldController {
     //@RequestMapping(method = RequestMethod.GET, path ="/hello")
     @GetMapping(path = "/hello")
     public String helloWorld(){
+
         return "Hello Jay to java world";
     }
+
     @GetMapping(path = "/hello-bean/pv/{name}")
     public HelloWorldBean helloWorldBean(@PathVariable String name){
         return new HelloWorldBean(String.format("Hellow World, %s", name));
