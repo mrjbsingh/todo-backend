@@ -18,7 +18,7 @@ public class TodoHardcodedService {
         todoList.add(new Todo(++idCounter, "Anurag", "Learn to Dance", new Date(), false));
     }
 
-    public static List<Todo> findAllTodos(String username){
+    public List<Todo> findAllTodos(String username){
         List<Todo> userTodos = new ArrayList<>();
 
         for(int i=0; i<todoList.size(); i++){
@@ -27,5 +27,23 @@ public class TodoHardcodedService {
             }
         }
         return userTodos;
+    }
+
+    public Todo deleteTodoById(long id){
+        Todo todo = findByID(id);
+        if(todo==null) return null;
+        if(todoList.remove(todo)){
+            return todo;
+        }
+        return null;
+    }
+
+    public Todo findByID(long id) {
+        for( Todo todo:todoList){
+            if(todo.getId() == id ){
+                return todo;
+            }
+        }
+        return null;
     }
 }
