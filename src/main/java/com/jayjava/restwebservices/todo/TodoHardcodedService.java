@@ -29,6 +29,10 @@ public class TodoHardcodedService {
         return userTodos;
     }
 
+    public Todo getTodoById(String username, long id){
+        return findByID(id);
+    }
+
     public Todo deleteTodoById(long id){
         Todo todo = findByID(id);
         if(todo==null) return null;
