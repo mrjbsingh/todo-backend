@@ -21,9 +21,9 @@ public class TodoHardcodedService {
     public List<Todo> findAllTodos(String username){
         List<Todo> userTodos = new ArrayList<>();
 
-        for(int i=0; i<todoList.size(); i++){
-            if(todoList.get(i).getUsername().equalsIgnoreCase(username)){
-                userTodos.add(todoList.get(i));
+        for(Todo todo: todoList){
+            if(todo.getUsername().equalsIgnoreCase(username)){
+                userTodos.add(todo);
             }
         }
         return userTodos;
