@@ -33,6 +33,17 @@ public class TodoHardcodedService {
         return findByID(id);
     }
 
+    public Todo saveTodo(Todo todo){
+        if(todo.getId()==-1 || todo.getId()==0){       //if this is new we will have -1 as default id
+            todo.setId(++idCounter);
+            todoList.add(todo);
+        }else{
+            deleteTodoById(todo.getId());
+            todoList.add(todo);
+        }
+        return todo;
+    }
+
     public Todo deleteTodoById(long id){
         Todo todo = findByID(id);
         if(todo==null) return null;
